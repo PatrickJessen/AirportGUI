@@ -4,31 +4,26 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Threading;
 
 namespace AirportGUI.ViewModels
 {
-    public class CounterViewModel
+    public class SortingMachineViewModel
     {
         public ObservableCollection<Luggage> Luggages { get; set; }
-        private Counter counter;
-        private Belt<Luggage> belt;
-        public CounterViewModel(int speed, int number, Belt<Luggage> belt)
-        {
-            Random rand = new Random();
-            this.belt = belt;
-            counter = new Counter(speed, number, belt);
-            Luggages = new ObservableCollection<Luggage>();
 
-            counter.OnProduced += Counter_OnProduced;
-            Thread t = new Thread(counter.Produce);
-            t.Start();
+        public SortingMachine Sorter { get; }
+
+        public SortingMachineViewModel(int speed, Belt<Luggage> belt)
+        {
+            Sorter = new SortingMachine(speed, belt);
+            Sorter.OnConsumed += Sorter_OnConsumed;
+            Luggages = new ObservableCollection<Luggage>();
+            Sorter.Start();
         }
 
-        private void Counter_OnProduced(object? sender, EventArgs e)
+        private void Sorter_OnConsumed(object? sender, Luggage e)
         {
             Application.Current.Dispatcher.BeginInvoke(new Action(() =>
             {

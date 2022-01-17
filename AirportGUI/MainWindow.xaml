@@ -38,5 +38,15 @@
         <Canvas Grid.Column="2" Grid.Row="1">
             <UC:LuggageItemsUserControl x:Name="LuggageItems" Height="278" Width="500" Visibility="{Binding Visibility}"/>
         </Canvas>
+
+        <Canvas Grid.Column="0" Grid.Row="2">
+            <UC:SortingMachineUserControl Width="250" Height="250" x:Name="SorterMachine1"/>
+        </Canvas>
+        <Canvas Grid.Column="1" Grid.Row="2">
+            <UC:SortingMachineUserControl Width="250" Height="250" x:Name="SorterMachine2"/>
+        </Canvas>
+        <Canvas Grid.Column="2" Grid.Row="2">
+            <UC:SortingMachineUserControl Width="250" Height="250" x:Name="SorterMachine3"/>
+        </Canvas>
     </Grid>
 </Window>

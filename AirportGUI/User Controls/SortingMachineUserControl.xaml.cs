@@ -1,5 +1,4 @@
-﻿using AirportGUI.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +18,11 @@ namespace AirportGUI.User_Controls
     /// <summary>
     /// Interaction logic for SortingMachineUserControl.xaml
     /// </summary>
-    public partial class LuggageScannerUserControl : UserControl
+    public partial class SortingMachineUserControl : UserControl
     {
-        public LuggageScannerUserControl()
+        public SortingMachineUserControl()
         {
             InitializeComponent();
-        }
-
-        private void DoubleAnimation_Completed(object sender, EventArgs e)
-        {
-            ((LuggageScannerViewModel)(this.DataContext)).Luggages.RemoveAt(0);
         }
     }
 }
