@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="AirportGUI.User_Controls.LuggageScannerUserControl"
+﻿<UserControl x:Class="AirportGUI.User_Controls.PortUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,23 +6,13 @@
              xmlns:local="clr-namespace:AirportGUI.User_Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="0,0,172,86">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="335*"/>
-            <RowDefinition Height="29*"/>
-        </Grid.RowDefinitions>
-        <Image Source="../Assets/Scanner.png" Margin="0,-9,0,-22" Grid.RowSpan="2" />
-        <Canvas Grid.RowSpan="2">
-            <Button Canvas.Left="200" Canvas.Top="10" Command="{Binding ShowItems}" Width="90" Height="60" Background="Transparent"/>
-        </Canvas>
-        <Canvas>
-            <Label FontSize="40" Foreground="Red" Content="{Binding SuspectLuggageText}" Margin="0,0,-220,167" />
-        </Canvas>
-        <ItemsControl ItemsSource="{Binding Luggages}" Grid.RowSpan="2">
+    <Grid>
+        <Image Source="../Assets/Container.png" />
+        <ItemsControl ItemsSource="{Binding Luggages}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Canvas>
-                        <Rectangle Width="170" Height="90" Canvas.Left="198" Canvas.Top="59">
+                        <Rectangle Width="130" Height="90" Canvas.Left="0" Canvas.Top="59">
                             <Rectangle.Fill>
                                 <ImageBrush ImageSource="../Assets/Luggage.png"/>
                             </Rectangle.Fill>
@@ -35,13 +25,12 @@
                                         <BeginStoryboard>
                                             <Storyboard>
                                                 <DoubleAnimation
-                                                Storyboard.TargetProperty="RenderTransform.X" 
-                                                From="-50"
-                                                To="190"
-                                                Duration="0:0:3"
-                                                AutoReverse="False"
-                                                Completed="DoubleAnimation_Completed"
-                                                />
+                                    Storyboard.TargetProperty="RenderTransform.Y" 
+                                    From="-50"
+                                    To="190"
+                                    Duration="0:0:3"
+                                    AutoReverse="False"
+                                    />
                                             </Storyboard>
                                         </BeginStoryboard>
                                     </EventTrigger.Actions>

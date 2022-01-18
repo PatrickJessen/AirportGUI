@@ -11,24 +11,31 @@ namespace AirportGUI.ViewModels
 {
     public class SortingMachineViewModel
     {
-        public ObservableCollection<Luggage> Luggages { get; set; }
+        //public ObservableCollection<Luggage> Luggages { get; set; }
 
-        public SortingMachine Sorter { get; }
+        //public SortingMachine Sorter { get; }
 
-        public SortingMachineViewModel(int speed, Belt<Luggage> belt)
-        {
-            Sorter = new SortingMachine(speed, belt);
-            Sorter.OnConsumed += Sorter_OnConsumed;
-            Luggages = new ObservableCollection<Luggage>();
-            Sorter.Start();
-        }
+        //public SortingMachineViewModel(int speed, Belt<Luggage> belt)
+        //{
+        //    Sorter = new SortingMachine(speed, belt);
+        //    for (int i = 0; i < Sorter.Ports.Length; i++)
+        //        Sorter.Ports[i].OnPortIsFull += SortingMachineViewModel_OnPortIsFull;
+        //    Luggages = new ObservableCollection<Luggage>();
+        //    Sorter.OnConsumed += Sorter_OnConsumed;
+        //    Sorter.Start();
+        //}
 
-        private void Sorter_OnConsumed(object? sender, Luggage e)
-        {
-            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-            {
-                Luggages.Add(new Luggage(new Label("", "", DateTime.Now), 3));
-            }));
-        }
+        //private void SortingMachineViewModel_OnPortIsFull(object? sender, EventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //private void Sorter_OnConsumed(object? sender, Luggage e)
+        //{
+        //    Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+        //    {
+        //        Luggages.Add(new Luggage(new Label("", "", DateTime.Now), 3));
+        //    }));
+        //}
     }
 }

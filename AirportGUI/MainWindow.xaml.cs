@@ -25,37 +25,32 @@ namespace AirportGUI
     public partial class MainWindow : Window
     {
         private LuggageItemsViewModel luggageItems;
-        private SortingMachineViewModel sorter;
-        private Belt<Luggage> belt;
+        private Belt<Luggage> counterBelt;
+        private Belt<Luggage> scannedLuggageBelt;
         private LuggageScannerViewModel luggageScanner;
+        private SortingMachine sorter;
+        private PortViewModel[] ports;
         public MainWindow()
         {
             InitializeComponent();
-            belt = new Belt<Luggage>(10);
+            counterBelt = new Belt<Luggage>(10);
+            scannedLuggageBelt = new Belt<Luggage>(10);
             //Counter1.DataContext = new CounterViewModel(2000, 1, belt);
-            Counter2.DataContext = new CounterViewModel(3000, 2, belt);
+            Counter2.DataContext = new CounterViewModel(3000, 2, counterBelt);
             //Counter3.DataContext = new CounterViewModel(1500, 3, belt);
 
             luggageItems = new LuggageItemsViewModel();
             LuggageItems.DataContext = luggageItems;
-            luggageScanner = new LuggageScannerViewModel(1000, belt, luggageItems);
+            luggageScanner = new LuggageScannerViewModel(1000, counterBelt, scannedLuggageBelt, luggageItems);
             Scanner.DataContext = luggageScanner;
-            //luggageScanner.Scanner.OnScanned += Scanner_OnScanned;
 
-            SorterMachine1.DataContext = new SortingMachineViewModel(2000, belt);
-            SorterMachine2.DataContext = new SortingMachineViewModel(2000, belt);
-            SorterMachine3.DataContext = new SortingMachineViewModel(2000, belt);
+            ports = new PortViewModel[3];
+            //sorter = new SortingMachine(1000, scannedLuggageBelt);
+            for (int i = 0; i < ports.Length; i++)
+                ports[i] = new PortViewModel(i, 10);
+            Port1.DataContext = ports[0];
+            Port2.DataContext = ports[1];
+            Port3.DataContext = ports[2];
         }
-
-        //private void Scanner_OnScanned(object? sender, Luggage e)
-        //{
-        //    //Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-        //    //{
-        //        luggageScanner.Luggages.Add(e);
-        //    //}));
-        //    luggageItems.Item1 = e.Items[0];
-        //    luggageItems.Item2 = e.Items[1];
-        //    luggageItems.Item3 = e.Items[2];
-        //}
     }
 }
