@@ -25,12 +25,12 @@
                                         <BeginStoryboard>
                                             <Storyboard>
                                                 <DoubleAnimation
-                                    Storyboard.TargetProperty="RenderTransform.Y" 
-                                    From="-50"
-                                    To="190"
-                                    Duration="0:0:3"
-                                    AutoReverse="False"
-                                    />
+                                                Storyboard.TargetProperty="RenderTransform.Y" 
+                                                From="-50"
+                                                To="190"
+                                                Duration="0:0:3"
+                                                AutoReverse="False"
+                                                />
                                             </Storyboard>
                                         </BeginStoryboard>
                                     </EventTrigger.Actions>

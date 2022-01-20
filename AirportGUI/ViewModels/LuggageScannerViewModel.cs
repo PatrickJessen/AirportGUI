@@ -43,9 +43,9 @@ namespace AirportGUI.ViewModels
             ShowItems = new ShowItemsCommand(items);
         }
 
-        private void Scanner_OnSuspectLuggageFound(object? sender, Luggage e)
+        private void Scanner_OnSuspectLuggageFound(object? sender, string e)
         {
-            SuspectLuggageText = "SUSPECT LUGGAGE FOUND!";
+            SuspectLuggageText = "SUSPECT LUGGAGE FOUND! " + e;
         }
 
         private void Scanner_OnScanning(object? sender, Luggage e)
@@ -61,7 +61,7 @@ namespace AirportGUI.ViewModels
                 Luggages.Add(new Luggage(new Label("", "", DateTime.Now), 3));
                 items.Item1 = e.Items[0];
                 items.Item2 = e.Items[1];
-                items.Item3 = e.Items[1];
+                items.Item3 = e.Items[2];
             }));
         }
     }

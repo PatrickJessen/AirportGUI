@@ -16,7 +16,7 @@
             <Button Canvas.Left="200" Canvas.Top="10" Command="{Binding ShowItems}" Width="90" Height="60" Background="Transparent"/>
         </Canvas>
         <Canvas>
-            <Label FontSize="40" Foreground="Red" Content="{Binding SuspectLuggageText}" Margin="0,0,-220,167" />
+            <Label FontSize="40" Foreground="Red" Content="{Binding SuspectLuggageText, Mode=TwoWay}" Margin="0,0,-220,167" />
         </Canvas>
         <ItemsControl ItemsSource="{Binding Luggages}" Grid.RowSpan="2">
             <ItemsControl.ItemTemplate>

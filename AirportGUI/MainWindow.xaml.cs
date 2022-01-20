@@ -28,13 +28,17 @@ namespace AirportGUI
         private Belt<Luggage> counterBelt;
         private Belt<Luggage> scannedLuggageBelt;
         private LuggageScannerViewModel luggageScanner;
-        private SortingMachine sorter;
+        private SortingMachineViewModel sorter;
         private PortViewModel[] ports;
+        private Belt<Luggage>[] portBelts;
         public MainWindow()
         {
             InitializeComponent();
             counterBelt = new Belt<Luggage>(10);
             scannedLuggageBelt = new Belt<Luggage>(10);
+            portBelts = new Belt<Luggage>[3];
+            for (int i = 0; i < portBelts.Length; i++)
+                portBelts[i] = new Belt<Luggage>(10);
             //Counter1.DataContext = new CounterViewModel(2000, 1, belt);
             Counter2.DataContext = new CounterViewModel(3000, 2, counterBelt);
             //Counter3.DataContext = new CounterViewModel(1500, 3, belt);
@@ -45,9 +49,9 @@ namespace AirportGUI
             Scanner.DataContext = luggageScanner;
 
             ports = new PortViewModel[3];
-            //sorter = new SortingMachine(1000, scannedLuggageBelt);
+            sorter = new SortingMachineViewModel(1000, scannedLuggageBelt, portBelts);
             for (int i = 0; i < ports.Length; i++)
-                ports[i] = new PortViewModel(i, 10);
+                ports[i] = new PortViewModel(i, 10, 1000, portBelts[i]);
             Port1.DataContext = ports[0];
             Port2.DataContext = ports[1];
             Port3.DataContext = ports[2];
