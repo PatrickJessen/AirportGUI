@@ -7,12 +7,40 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Image Source="../Assets/Container.png" />
+        <Rectangle>
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="../Assets/Container.png"/>
+            </Rectangle.Fill>
+            <Rectangle.RenderTransform>
+                <TranslateTransform/>
+            </Rectangle.RenderTransform>
+            <Rectangle.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding StartEmptyPort}" Value="true">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                        Storyboard.TargetProperty="RenderTransform.Y" 
+                                        From="0"
+                                        To="250"
+                                        Duration="0:0:1"
+                                        AutoReverse="True"
+                                        />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Rectangle.Style>
+        </Rectangle>
         <ItemsControl ItemsSource="{Binding Luggages}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Canvas>
-                        <Rectangle Width="130" Height="90" Canvas.Left="0" Canvas.Top="59">
+                        <Rectangle Width="130" Height="90" Canvas.Left="100" Canvas.Top="59">
                             <Rectangle.Fill>
                                 <ImageBrush ImageSource="../Assets/Luggage.png"/>
                             </Rectangle.Fill>
@@ -27,8 +55,8 @@
                                                 <DoubleAnimation
                                                 Storyboard.TargetProperty="RenderTransform.Y" 
                                                 From="-50"
-                                                To="190"
-                                                Duration="0:0:3"
+                                                To="100"
+                                                Duration="0:0:1"
                                                 AutoReverse="False"
                                                 />
                                             </Storyboard>

@@ -16,9 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Assets\Container.png">
+    <Resource Include="Assets\Container.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Resource>
     <Content Include="Assets\Counter.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

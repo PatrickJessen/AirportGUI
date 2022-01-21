@@ -39,9 +39,9 @@ namespace AirportGUI
             portBelts = new Belt<Luggage>[3];
             for (int i = 0; i < portBelts.Length; i++)
                 portBelts[i] = new Belt<Luggage>(10);
-            //Counter1.DataContext = new CounterViewModel(2000, 1, belt);
+            Counter1.DataContext = new CounterViewModel(2000, 1, counterBelt);
             Counter2.DataContext = new CounterViewModel(3000, 2, counterBelt);
-            //Counter3.DataContext = new CounterViewModel(1500, 3, belt);
+            Counter3.DataContext = new CounterViewModel(1500, 3, counterBelt);
 
             luggageItems = new LuggageItemsViewModel();
             LuggageItems.DataContext = luggageItems;
@@ -51,7 +51,7 @@ namespace AirportGUI
             ports = new PortViewModel[3];
             sorter = new SortingMachineViewModel(1000, scannedLuggageBelt, portBelts);
             for (int i = 0; i < ports.Length; i++)
-                ports[i] = new PortViewModel(i, 10, 1000, portBelts[i]);
+                ports[i] = new PortViewModel(i, 3, 1000, portBelts[i]);
             Port1.DataContext = ports[0];
             Port2.DataContext = ports[1];
             Port3.DataContext = ports[2];

@@ -40,13 +40,13 @@
         </Canvas>
 
         <Canvas Grid.Column="0" Grid.Row="2">
-            <UC:PortUserControl Width="250" Height="250" x:Name="Port1"/>
+            <UC:PortUserControl Width="324" Height="250" x:Name="Port1"/>
         </Canvas>
         <Canvas Grid.Column="1" Grid.Row="2">
-            <UC:PortUserControl Width="250" Height="250" x:Name="Port2"/>
+            <UC:PortUserControl Width="324" Height="250" x:Name="Port2"/>
         </Canvas>
         <Canvas Grid.Column="2" Grid.Row="2">
-            <UC:PortUserControl Width="250" Height="250" x:Name="Port3"/>
+            <UC:PortUserControl Width="324" Height="250" x:Name="Port3"/>
         </Canvas>
     </Grid>
 </Window>
